@@ -9,7 +9,6 @@ import { PlayButton } from '@/components/player/PlayButton'
 
 export default function Episode({ episode }) {
   let date = new Date(episode.published)
-
   let audioPlayerData = useMemo(
     () => ({
       title: episode.title,
@@ -23,11 +22,17 @@ export default function Episode({ episode }) {
   )
   let player = useAudioPlayer(audioPlayerData)
 
+  const regex = /(<([^>]+)>)/gi
+  const descriptionWithoutHtml = episode.description.replace(regex, '')
+
+  function createMarkup() {
+    return { __html: episode.description }
+  }
   return (
     <>
       <Head>
         <title>{`${episode.title} - Kerning Code`}</title>
-        <meta name="description" content={episode.description} />
+        <meta name="description" content={descriptionWithoutHtml} />
       </Head>
       <article className="py-16 lg:py-36">
         <Container>
@@ -44,9 +49,10 @@ export default function Episode({ episode }) {
                 />
               </div>
             </div>
-            <p className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">
-              {episode.description}
-            </p>
+            <p
+              className="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700"
+              dangerouslySetInnerHTML={createMarkup()}
+            />
           </header>
           <hr className="my-12 border-gray-200" />
           <div
