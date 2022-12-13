@@ -1,5 +1,5 @@
 import { Fragment, useId, useState } from 'react'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
@@ -153,7 +153,9 @@ function AboutSection(props) {
           !isExpanded && 'lg:line-clamp-4'
         )}
       >
-        In this show, Frank and Chuck talk about the complicated world of working in tech. They speak to their expertise in design, development, product and sometimes life.
+        In this show, Frank and Chuck talk about the complicated world of
+        working in tech. They speak to their expertise in design, development,
+        product and sometimes life.
       </p>
       {!isExpanded && (
         <button
