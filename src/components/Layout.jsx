@@ -142,7 +142,7 @@ function AboutSection(props) {
     <section {...props}>
       <h2 className="flex items-center font-mono text-sm font-medium leading-7 text-slate-900">
         <TinyWaveFormIcon
-          colors={['fill-mellow-yellow-100', 'fill-mellow-yellow-200']}
+          colors={['fill-faded-brass-300', 'fill-faded-brass-500']}
           className="h-2.5 w-2.5"
         />
         <span className="ml-2.5">About</span>
@@ -219,7 +219,7 @@ export function Layout({ children }) {
           <section className="mt-10 lg:mt-12">
             <h2 className="sr-only flex items-center font-mono text-sm font-medium leading-7 text-slate-900 lg:not-sr-only">
               <TinyWaveFormIcon
-                colors={['fill-mellow-yellow-100', 'fill-mellow-yellow-200']}
+                colors={['fill-faded-brass-300', 'fill-faded-brass-500']}
                 className="h-2.5 w-2.5"
               />
               <span className="ml-2.5">Listen</span>
