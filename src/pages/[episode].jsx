@@ -60,19 +60,28 @@ export default function Episode({ episode }) {
 }
 
 export async function getStaticProps({ params }) {
-  let feed = await parse('https://their-side-feed.vercel.app/api/feed')
+  let feed = await parse('https://feeds.libsyn.com/435174/rss')
   let episode = feed.items
-    .map(({ id, title, description, content, enclosures, published }) => ({
-      id: id.toString(),
-      title: `${id}: ${title}`,
-      description,
-      content,
-      published,
-      audio: enclosures.map((enclosure) => ({
-        src: enclosure.url,
-        type: enclosure.type,
-      }))[0],
-    }))
+    .map(
+      ({
+        itunes_episode,
+        title,
+        description,
+        content,
+        enclosures,
+        published,
+      }) => ({
+        id: itunes_episode.toString(),
+        title: `${itunes_episode}: ${title}`,
+        description,
+        content,
+        published,
+        audio: enclosures.map((enclosure) => ({
+          src: enclosure.url,
+          type: enclosure.type,
+        }))[0],
+      })
+    )
     .find(({ id }) => id === params.episode)
 
   if (!episode) {
@@ -90,12 +99,12 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  let feed = await parse('https://their-side-feed.vercel.app/api/feed')
+  let feed = await parse('https://feeds.libsyn.com/435174/rss')
 
   return {
-    paths: feed.items.map(({ id }) => ({
+    paths: feed.items.map(({ itunes_episode }) => ({
       params: {
-        episode: id.toString(),
+        episode: itunes_episode.toString(),
       },
     })),
     fallback: 'blocking',

@@ -100,9 +100,7 @@ export default function Home({ episodes }) {
   return (
     <>
       <Head>
-        <title>
-          Kerning Code - The space between design and development
-        </title>
+        <title>Kerning Code - The space between design and development</title>
         <meta
           name="description"
           content="The space between design and development."
@@ -125,14 +123,15 @@ export default function Home({ episodes }) {
 }
 
 export async function getStaticProps() {
-  let feed = await parse('https://their-side-feed.vercel.app/api/feed')
+  let feed = await parse('https://feeds.libsyn.com/435174/rss')
+  console.log(feed.items[0])
 
   return {
     props: {
       episodes: feed.items.map(
-        ({ id, title, description, enclosures, published }) => ({
-          id,
-          title: `${id}: ${title}`,
+        ({ itunes_episode, title, description, enclosures, published }) => ({
+          id: itunes_episode,
+          title: `${itunes_episode}: ${title}`,
           published,
           description,
           audio: enclosures.map((enclosure) => ({
