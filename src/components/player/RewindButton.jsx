@@ -25,7 +25,7 @@ export function RewindButton({ player, amount = 10 }) {
       aria-label={`Rewind ${amount} seconds`}
     >
       <div className="absolute -inset-4 -right-2 md:hidden" />
-      <RewindIcon className="h-6 w-6 stroke-slate-500 group-hover:stroke-slate-700" />
+      <RewindIcon className="h-6 w-6 stroke-cool-gray-500 group-hover:stroke-cool-gray-700" />
     </button>
   )
 }

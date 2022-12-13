@@ -55,15 +55,15 @@ function EpisodeEntry({ episode }) {
         <div className="flex flex-col items-start">
           <h2
             id={`episode-${episode.id}-title`}
-            className="mt-2 text-lg font-bold text-slate-900"
+            className="mt-2 text-lg font-bold text-cool-gray-900"
           >
             <Link href={`/${episode.id}`}>{episode.title}</Link>
           </h2>
           <FormattedDate
             date={date}
-            className="order-first font-mono text-sm leading-7 text-slate-500"
+            className="order-first font-mono text-sm leading-7 text-cool-gray-500"
           />
-          <p className="mt-1 text-base leading-7 text-slate-700">
+          <p className="mt-1 text-base leading-7 text-cool-gray-700">
             {descriptionWithoutHtml}
           </p>
           <div className="mt-4 flex items-center gap-4">
@@ -85,7 +85,7 @@ function EpisodeEntry({ episode }) {
             </button>
             <span
               aria-hidden="true"
-              className="text-sm font-bold text-slate-400"
+              className="text-sm font-bold text-cool-gray-400"
             >
               /
             </span>
@@ -115,11 +115,11 @@ export default function Home({ episodes }) {
       </Head>
       <div className="pt-16 pb-12 sm:pb-4 lg:pt-12">
         <Container>
-          <h1 className="text-2xl font-bold leading-7 text-slate-900">
+          <h1 className="text-2xl font-bold leading-7 text-cool-gray-900">
             Episodes
           </h1>
         </Container>
-        <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
+        <div className="divide-y divide-cool-gray-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-cool-gray-100">
           {episodes.map((episode) => (
             <EpisodeEntry key={episode.id} episode={episode} />
           ))}
