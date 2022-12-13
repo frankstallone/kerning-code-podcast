@@ -124,7 +124,6 @@ export default function Home({ episodes }) {
 
 export async function getStaticProps() {
   let feed = await parse('https://feeds.libsyn.com/435174/rss')
-  console.log(feed.items[0])
 
   return {
     props: {
