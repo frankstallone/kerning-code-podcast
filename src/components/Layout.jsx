@@ -211,8 +211,7 @@ export function Layout({ children }) {
               <Link href="/">Kerning Code</Link>
             </p>
             <p className="mt-3 text-lg font-medium leading-8 text-cool-gray-700">
-              Conversations with the most tragically misunderstood people of our
-              time.
+              The space between design and development.
             </p>
           </div>
           <AboutSection className="mt-12 hidden lg:block" />
